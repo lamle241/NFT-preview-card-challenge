@@ -1,25 +1,75 @@
 body{
-    background:hsl(216, 50%, 16%);
+    background:hsl(217, 54%, 11%);
     color: white;
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
-    font-size:18px
+    font-size:18px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .box-center{
-    background-color:  hsl(217, 54%, 11%);
+    background-color:hsl(216, 50%, 16%);
     border-radius: 20px;
     margin:0 auto;
     display: block;
-    width: 20%;
-    padding: 20px;
+    max-width: 300px;
+    padding: 20px; 
 }
-.box-center > img{
+@media(max-width:768px){
+    .box-center{
+        width: 100%;
+    }
+    body{
+        padding: 20px;
+    }
+}
+.box-center .featured-img > img{
     width:100%;
+    height:auto;
     display: block;
+    position: relative;
+    z-index: 1;
+    justify-content: center;    border-radius: 10px;
+} 
+.featured-img{
+    HEIGHT:auto;
+    position: relative;
+    
+}
+.box-center .featured-img .overlay{
+    position: absolute;
+    content: '';
+    background:hsl(178, 100%, 50%);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0;
+    opacity: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    border-radius: 10px;
+    transition:0.5s ease;
+} 
+.box-center .featured-img:hover .overlay{
+    opacity: .5;
+}
+.box-center a {
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    height: 100%;
 }
 .box-center h1{
-   font-size: 24px;
+   font-size: 21px;
    font-weight: 600;
+   color: white;transition:0.5s ease;
+}
+.box-center h1:hover{
+    color: hsl(178, 100%, 50%);
 }
 .box-center p{
     color:hsl(215, 51%, 70%)
@@ -59,7 +109,7 @@ body{
 .meta-info{
      display: table;
      width: 100%;
-     font-size: 12px;
+     font-size: 14px;
      padding-bottom: 20px; }
 
 .author img{
@@ -72,16 +122,18 @@ body{
 }
 .author h4{
     display: block;
-
     width:calc(100% - 50px);
-    font-size: 12px;
+    font-size: 14px;
     color:hsl(215, 51%, 70%);
     font-weight: 300;
-    /* padding:0;
-    margin:0 */
 }
 .author h4 span{
     display: inline; 
+    color: white;
+    transition:0.5s ease;
+}
+.author h4 span:hover{
+    color: hsl(178, 100%, 50%);
 }
 .author{
     width: 100%;
@@ -89,5 +141,5 @@ body{
     border-top: solid 1px hsla(215, 52%, 70%, 0.288);
     padding-top: 20px;
     justify-content: space-between;
-    /* flex-direction: column; */
+    align-items: center;
 }
